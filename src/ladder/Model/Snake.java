@@ -1,10 +1,10 @@
-package ladder;
+package ladder.Model;
 
-public class Ladder {
+public class Snake {
     private int start;
     private int end;
 
-    public Ladder(int start, int end) {
+    public Snake(int start, int end) {
         this.start = start;
         this.end = end;
     }

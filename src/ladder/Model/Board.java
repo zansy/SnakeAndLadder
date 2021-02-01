@@ -1,4 +1,4 @@
-package ladder;
+package ladder.Model;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,54 +6,54 @@ import java.util.Map;
 import java.util.Random;
 
 public class Board {
-    private List<Ladder> ladders;
-    private List<Snake> snakes;
+    private Map<Integer, Integer> ladders;
+    private Map<Integer, Integer> snakes;
     private List<Player> players;
-    private int dicesNum;
+    private boolean isTwodices;
     private int size;
     private Map<Player, Integer> playersposition;
 
-    public Board(List<Snake> snakes, List<Ladder> ladders, List<Player> players) {
+    public Board(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders, List<Player> players) {
         this.ladders = ladders;
         this.snakes = snakes;
         this.players = players;
-        this.dicesNum = 1;
+        isTwodices = false;
         this.size = 100;
         this.playersposition = new HashMap<>();
         for (Player p:players){
             this.playersposition.put(p, 0);
         }
     }
-    public Board(List<Snake> snakes, List<Ladder> ladders, List<Player> players, int dicesNum){
+    public Board(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders, List<Player> players, boolean isTwodices){
         this(snakes, ladders, players);
-        this.dicesNum = dicesNum;
+        this.isTwodices = isTwodices;
     }
-    public Board(List<Snake> snakes, List<Ladder> ladders, List<Player> players, int dicesNum, int size){
-        this(snakes, ladders, players, dicesNum);
+    public Board(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders, List<Player> players, boolean isTwodices, int size){
+        this(snakes, ladders, players, isTwodices);
         this.size = size;
     }
 
-    public int getDicesNum() {
-        return dicesNum;
+    public boolean isTwodices() {
+        return isTwodices;
     }
 
-    public void setDicesNum(int dicesNum) {
-        this.dicesNum = dicesNum;
+    public void setTwodices(boolean twodices) {
+        isTwodices = twodices;
     }
 
-    public List<Ladder> getLadders() {
+    public Map<Integer, Integer> getLadders() {
         return ladders;
     }
 
-    public void setLadders(List<Ladder> ladders) {
+    public void setLadders(Map<Integer, Integer> ladders) {
         this.ladders = ladders;
     }
 
-    public List<Snake> getSnakes() {
+    public Map<Integer, Integer> getSnakes() {
         return snakes;
     }
 
-    public void setSnakes(List<Snake> snakes) {
+    public void setSnakes(Map<Integer, Integer> snakes) {
         this.snakes = snakes;
     }
 
@@ -63,10 +63,6 @@ public class Board {
 
     public void setPlayers(List<Player> players) {
         this.players = players;
-    }
-    public int roll(){
-        return (new Random().nextInt(6)+1)*this.dicesNum;
-        //return new Random().nextInt(2)+5;
     }
 
     public Map<Player, Integer> getPlayersposition() {

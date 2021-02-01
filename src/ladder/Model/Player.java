@@ -1,4 +1,4 @@
-package ladder;
+package ladder.Model;
 
 import java.util.UUID;
 

@@ -1,21 +1,27 @@
 package ladder;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import ladder.Model.Ladder;
+import ladder.Model.Player;
+import ladder.Model.Snake;
+import ladder.Service.BoardService;
+
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int snakeNum = sc.nextInt();
-        List<Snake> snakes = new LinkedList<>();
+        //List<Snake> snakes = new LinkedList<>();
+        Map<Integer, Integer> snakes = new HashMap<>();
         for (int i = 0; i < snakeNum; i++){
-            snakes.add(new Snake(sc.nextInt(), sc.nextInt()));
+            //snakes.add(new Snake(sc.nextInt(), sc.nextInt()));
+            snakes.put(sc.nextInt(), sc.nextInt());
         }
         int ladderNum = sc.nextInt();
-        List<Ladder> ladders = new LinkedList<>();
+        //List<Ladder> ladders = new LinkedList<>();
+        Map<Integer, Integer> ladders = new HashMap<>();
         for (int i = 0; i < ladderNum; i++){
-            ladders.add(new Ladder(sc.nextInt(), sc.nextInt()));
+            ladders.put(sc.nextInt(), sc.nextInt());
         }
         int playerNum = sc.nextInt();
         List<Player> players = new LinkedList<>();

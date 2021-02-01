@@ -1,5 +1,11 @@
-package ladder;
+package ladder.Service;
 
+import ladder.Model.Board;
+import ladder.Model.Ladder;
+import ladder.Model.Player;
+import ladder.Model.Snake;
+
+import java.util.HashMap;
 import java.util.List;
 
 public class BoardService {
@@ -35,7 +41,7 @@ public class BoardService {
         }
     }
 
-    public void start(List<Snake> snakes, List<Ladder> ladders, List<Player> players){
+    public void start(HashMap<Integer, Integer> snakes, HashMap<Integer, Integer> ladders, List<Player> players){
         board = new Board(snakes, ladders, players);
         core();
     }
