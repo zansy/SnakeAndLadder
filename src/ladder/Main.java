@@ -1,9 +1,7 @@
 package ladder;
 
-import ladder.Model.Ladder;
 import ladder.Model.Player;
-import ladder.Model.Snake;
-import ladder.Service.BoardService;
+import ladder.Service.Game;
 
 import java.util.*;
 
@@ -28,10 +26,8 @@ public class Main {
         for (int i = 0; i < playerNum; i++){
             players.add(new Player(sc.next()));
         }
-        BoardService boardService = new BoardService();
-        //boardService.start(snakes, ladders, players);
-        //boardService.start(snakes, ladders, players, 2);
-        boardService.start(snakes, ladders, players, 2, 200);
+        new Game(snakes, ladders, players, false, 200);
+
     }
 
 }
