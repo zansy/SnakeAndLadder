@@ -1,9 +1,6 @@
-package ladder.Model;
+package model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 public class Board {
     public final List<Player> players;
