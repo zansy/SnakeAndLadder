@@ -21,8 +21,8 @@ public class Main {
         for (int i = 0; i < playerNum; i++){
             players.add(new Player(sc.next()));
         }
-        Game game = new Game(players, false, 200);
-        game.run(snakes, ladders);
+        Game game = new Game(snakes, ladders, players, false, 200);
+        game.run();
     }
 
 }

@@ -9,7 +9,9 @@ import java.util.Map;
 public class Game {
     private Board board;
     DiceService diceService = new DiceService();
-    public void run(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders){
+    public final Map<Integer, Integer> snakes;
+    public final Map<Integer, Integer> ladders;
+    public boolean run(){
         while (true){
             for (Player currentPlayer : board.players){
                 int curRollNum = board.isTwodices() ? diceService.roll(2) : diceService.roll(1);
@@ -24,7 +26,7 @@ public class Game {
                     //---option 3 start---
                     board.players.remove(currentPlayer);
                     if (board.players.size() == 1){
-                        return;
+                        return true;
                     }
                     //---option 3 end---
                 }
@@ -32,11 +34,15 @@ public class Game {
         }
     }
     //option 1
-    public Game(List<Player> players, boolean isTwoDice){
+    public Game(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders, List<Player> players, boolean isTwoDice){
+        this.snakes = snakes;
+        this.ladders = ladders;
         board = new Board(players, isTwoDice);
     }
     //option 2
-    public Game(List<Player> players, boolean isTwoDice, int size){
+    public Game(Map<Integer, Integer> snakes, Map<Integer, Integer> ladders, List<Player> players, boolean isTwoDice, int size){
+        this.snakes = snakes;
+        this.ladders = ladders;
         board = new Board(players, isTwoDice, size);
     }
 
